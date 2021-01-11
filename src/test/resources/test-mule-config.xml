@@ -1,0 +1,19 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aws-polly="http://www.mulesoft.org/schema/mule/aws-polly"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/aws-polly http://www.mulesoft.org/schema/mule/aws-polly/current/mule-aws-polly.xsd">
+
+	<aws-polly:config name="config" configId="configId">
+		<aws-polly:connection requiredParameter="aValue" />
+	</aws-polly:config>
+
+	<flow name="sayHiFlow">
+		<aws-polly:say-hi person="Mariano Gonzalez" />
+	</flow>
+
+	<flow name="retrieveInfoFlow">
+		<aws-polly:retrieve-info config-ref="config" />
+	</flow>
+
+</mule>
